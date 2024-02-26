@@ -1,11 +1,11 @@
 # Overview
-The CausalPlayground library serves as a tool for causality research, focusing on the interactive exploration of structural 
+The [CausalPlayground](https://github.com/sa-and/CausalPlayground) library serves as a tool for causality research, focusing on the interactive exploration of structural 
 causal models (SCMs). It provides extensive functionality for creating, manipulating and sampling SCMs, seamlessly 
 integrating them with the Gymnasium framework. Users have complete control over SCMs, enabling precise manipulation and
 interaction with causal mechanisms. Additionally, CausalPlayground offers a range of useful helper functions for generating 
 diverse instances of SCMs and DAGs, facilitating quantitative experimentation and evaluation. Notably, the library is 
 designed for easy integration with reinforcement learning methods, enhancing its utility in active inference and 
-learning settings.
+learning settings. Find the complete API documentation [here](https://sa-and.github.io/CausalPlayground/).
 
 # Installation guide (TODO)
 Either clone and 'pip install -r requirements.txt'
@@ -213,8 +213,8 @@ def f_linear(parents: List[str]):
 ```
 This function can then be passed to the generator as described above.
 
-# Contribution Guide
-# Citing this work
+# Contributing (TODO)
+# Citing this work (TODO)
 If you are using this library, please consider citing us:
 TODO
 
