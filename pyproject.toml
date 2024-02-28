@@ -14,8 +14,8 @@ keywords = ["causality", "reinforcement learning", "structural causal model", "d
 dependencies = [
         "networkx",
         "dill",
-        "gymnasium",
-        "matplotlib",
+        "gymnasium==0.29.1",
+        "matplotlib==3.8.2",
         "numpy",
         "pandas",
         "scipy",
