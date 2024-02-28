@@ -10,8 +10,10 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     environment:
-      name: test-pypi
+      name: testpypi
       url: https://test.pypi.org/p/CausalPlayground
+    permissions:
+      id-token: write
     steps:
       - uses: actions/checkout@v4
       - name: Set up Python
@@ -27,4 +29,6 @@ jobs:
       - name: Publish package
         uses: pypa/gh-action-pypi-publish@release/v1
         with:
+          repository-url: https://test.pypi.org/legacy/
+          username: __token__
           password: ${{ secrets.TESTPYPI }}
