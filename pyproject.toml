@@ -14,7 +14,6 @@ keywords = ["causality", "reinforcement learning", "structural causal model", "d
 classifiers=[
         "Development Status :: 4 - Beta",
         "Programming Language :: Python :: 3.11",
-        "License :: OSI Approved :: MIT Licence",
         "Operating System :: OS Independent",]
 
 [project.urls]
