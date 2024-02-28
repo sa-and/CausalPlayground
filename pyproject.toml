@@ -13,13 +13,13 @@ license = {text = "MIT License"}
 keywords = ["causality", "reinforcement learning", "structural causal model", "data generation", "RL", "SCM"]
 dependencies = [
         "networkx>3.0",
-        "dill>0.3.0",
-        "gymnasium>0.29.0",
-        "matplotlib>3.8.0",
-        "numpy>1.26.0",
-        "pandas>2.2.0",
-        "scipy>1.12.0",
-        "tqdm>4.66.1"
+        "dill",
+        "gymnasium",
+        "matplotlib",
+        "numpy",
+        "pandas",
+        "scipy",
+        "tqdm"
 ]
 classifiers=[
         "Development Status :: 4 - Beta",
