@@ -11,6 +11,16 @@ readme = "README.md"
 description = "Interactively generating causal data from structural causal models."
 license = {text = "MIT License"}
 keywords = ["causality", "reinforcement learning", "structural causal model", "data generation", "RL", "SCM"]
+dependencies = [
+        "networkx",
+        "dill",
+        "gymnasium",
+        "matplotlib",
+        "numpy",
+        "pandas",
+        "scipy",
+        "tqdm"
+]
 classifiers=[
         "Development Status :: 4 - Beta",
         "Programming Language :: Python :: 3.11",
