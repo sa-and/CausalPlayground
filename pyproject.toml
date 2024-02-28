@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "CausalPlayground"
-version = "0.1.5"
+version = "0.1.6"
 requires-python = ">= 3.11"
 authors = [{name = "Andreas Sauter", email = "a.sauter@vu.nl"}]
 readme = "README.md"
@@ -12,7 +12,7 @@ description = "Interactively generating causal data from structural causal model
 license = {text = "MIT License"}
 keywords = ["causality", "reinforcement learning", "structural causal model", "data generation", "RL", "SCM"]
 dependencies = [
-        "networkx>3.0",
+        "networkx",
         "dill",
         "gymnasium",
         "matplotlib",
