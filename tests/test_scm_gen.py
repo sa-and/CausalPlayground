@@ -2,7 +2,7 @@ import CausalPlayground
 from CausalPlayground import StructuralCausalModel
 from CausalPlayground import SCMGenerator
 import unittest
-from .functions import *
+from functions import *
 import random
 
 
