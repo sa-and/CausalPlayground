@@ -1,6 +1,6 @@
 import unittest
-from CausalPlayground import SCMEnvironment  #VisualSCMEnvironment
-from CausalPlayground import StructuralCausalModel
+from CausalPlayground.scm_environment import SCMEnvironment  #VisualSCMEnvironment
+from CausalPlayground.scm import StructuralCausalModel
 import random
 
 

@@ -125,7 +125,7 @@ class SCMEnvironment(Env):
         :param options: Additional information to specify how the environment is reset
         :return: The current observation and additional information.
         """
-        super().reset(seed=seed)
+        super().reset(seed=seed, options=options)
         self.steps_this_episode = 0
 
         self.update_values_from_scm_sample()
@@ -222,3 +222,88 @@ class SCMEnvironment(Env):
         """
         return False
 
+
+class SCMReservoirEnvironment(Env):
+    '''
+    Defines a gymnasium environment over a set of SCMs.
+    '''
+
+    def __init__(self, scms: List[StructuralCausalModel],
+                 possible_interventions: List[Tuple[str, Tuple[Callable, Dict]]],
+                 render_mode: str | None = None,
+                 seed: int | None = None) -> None):
+
+        self.envs = []
+        self.test_set = test_set
+        self.train_set = train_set
+        self.eval_func_type = eval_func_type
+        self.agent_type = agent_type
+        self.episode_length = episode_length
+        self.n_vars = n_vars
+        self.possible_functions = possible_functions
+        self.gen = SCMGenerator()
+        self.intervention_value = intervention_value
+        self.mode = mode
+
+        self.current_env = self.get_next_env(new_env=True)
+        self.action_space = self.current_env.action_space
+        self.observation_space = self.current_env.observation_space
+
+    def reset(self):
+        # reset the current environment
+        self.current_env.reset()
+
+        # choose a random next environment and reset it
+        self.current_env = self.get_next_env(new_env=True)
+        return self.current_env.reset()
+
+    def get_observation(self):
+        return self.current_env.observation
+
+    def get_causal_structure(self):
+        return self.current_env.get_causal_structure()
+
+    def set_reward(self, reward: float):
+        self.current_env.set_reward(reward)
+
+    def step(self, action):
+        return self.current_env.step(action)
+
+    def render(self, mode='human'):
+        self.current_env.render(mode)
+
+    def get_next_env(self, new_env: bool = True):
+        """
+        Samples a new environment in the reservoir if new_env is True. The environment is only returned if its graph
+        structure is not in the test.
+
+        :param new_env: If True, a new environment is samples. If False, the environment of the previous episode
+        is returned
+        """
+        if not self.train_set is None:  # sample new environment from the train set if exists
+            graph = random.choice(self.train_set)
+            scm = self.gen.create_scm_from_graph(graph, possible_functions=[k for k in self.possible_functions])
+
+        elif not self.test_set is None and self.train_set is None:  # if only test set is provided, sample a scm that
+            # is not in the test set
+
+            while True:  # resample scm until there is one that is not in the test set
+                scm = self.gen.create_random(possible_functions=[k for k in self.possible_functions],
+                                             n_endo=self.n_vars, n_exo=0)[0]
+                graph = scm.create_graph()
+
+                in_testset = False
+                for i in range(len(self.test_set)):
+                    edit_distance = nx.graph_edit_distance(self.test_set[i], graph)
+                    if edit_distance == 0:
+                        in_testset = True
+                        break
+                if not in_testset:
+                    break
+
+        else:  # self.test_set is None and self.train_set is None:  sample a completely new SCM with random structure
+            scm = self.gen.create_random(possible_functions=[k for k in self.possible_functions],
+                                             n_endo=self.n_vars, n_exo=0)[0]
+
+        agent, _ = self._build_agent_eval_func()
+        return SCMEnvironment(agent, self.episode_length, scm, mode=self.mode)

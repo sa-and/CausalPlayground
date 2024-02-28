@@ -1,6 +1,6 @@
 import unittest
 import numpy as np
-from CausalPlayground import CausalGraphGenerator, CausalGraphSetGenerator
+from CausalPlayground.generators import CausalGraphGenerator, CausalGraphSetGenerator
 import networkx as nx
 import os
 
