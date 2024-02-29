@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "CausalPlayground"
-dynamic = ["version"]
+version = "0.1.10"
 requires-python = ">= 3.11"
 authors = [{name = "Andreas Sauter", email = "a.sauter@vu.nl"}]
 readme = "README.md"
@@ -30,6 +30,3 @@ classifiers=[
 Homepage="https://sa-and.github.io/CausalPlayground/CausalPlayground.html"
 Documentation="https://sa-and.github.io/CausalPlayground/CausalPlayground.html"
 Repository="https://github.com/sa-and/CausalPlayground"
-
-[tool.setuptools.dynamic]
-version = {attr = "CausalPlayground.VERSION"}
