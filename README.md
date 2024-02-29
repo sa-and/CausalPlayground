@@ -7,7 +7,7 @@ diverse instances of SCMs and DAGs, facilitating quantitative experimentation an
 designed for easy integration with reinforcement learning methods, enhancing its utility in active inference and 
 learning settings. Find the complete API documentation and a quickstart guide [here](https://sa-and.github.io/CausalPlayground/).
 
-# Installation guide (TODO)
+# Installation guide
 In your python environment `pip install causal-playground`.
 
 # Contributing
@@ -21,6 +21,6 @@ Contributions are highly welcomed and encouraged! To contribute to the project, 
 
 Alternatively, you can open a well-described issue.
 
-# Citing this work (TODO)
+# Citing this work
 If you are using this library, please consider citing us:
 TODO

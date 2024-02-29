@@ -7,12 +7,10 @@ integrating them with the Gymnasium framework. Users have complete control over 
 interaction with causal mechanisms. Additionally, CausalPlayground offers a range of useful helper functions for generating
 diverse instances of SCMs and DAGs, facilitating quantitative experimentation and evaluation. Notably, the library is
 designed for easy integration with reinforcement learning methods, enhancing its utility in active inference and
-learning settings. This documentation presents the complete API documentation and a quickstart guide [here](https://sa-and.github.io/CausalPlayground/).
+learning settings. This documentation presents the complete API documentation and a quickstart guide.
 
-# Installation guide (TODO)
-Either clone and 'pip install -r requirements.txt'
-
-or 'pip install CausalPlayground'
+# Installation guide
+In your python environment `pip install causal-playground`.
 
 # Structural Causal Models (SCM)
 SCMs are a powerful model to express a data-generating process that is governed by clear causal relations represented
@@ -25,7 +23,7 @@ facilitates the creation, manipulation, and sampling of SCM as described below.
 ## Defining an SCM
 Define the SCM $\mathcal{M} = (\mathcal{X}, \mathcal{U}, \mathcal{F}, \mathcal{P})$ with
 $\mathcal{X}= \\{ A, Effect \\}$, $\mathcal{U}=\\{U\\}$, $\mathcal{P}=\\{Uniform(3, 8)\\}$, and
-$\mathcal{F} = \begin{cases}A\leftarrow 5+U\\\Effect \leftarrow A*2\end{cases}$
+$\mathcal{F} = \\{A\leftarrow 5+U, Effect \leftarrow A*2\\}$
 
 ```Python
 >>> scm = StructuralCausalModel()
@@ -181,14 +179,11 @@ causal relations and a random causal structure.
                                    exo_distribution=random.random, exo_distribution_kwargs={},
                                    allow_exo_confounders=True)[0]
 ```
-To generate an SCM based on a given causal structure:
+Or generate a random SCM based on a given causal structure:
 ```Python
 >>> generator.create_scm_from_graph(graph=GRAPH, possible_functions=['linear'],
                                 exo_distribution=random.randint, exo_distribution_kwargs={'a': 2, 'b': 5})
 ```
-
-`./envs/generation/functions.py` defines the functions that can be used when defining your SCM. You can either use the
-pre-defined functions, or define the function that is tailored to your need.
 
 The interface to define your own data-generating function is as follows: define an (outer) python function that takes as
 input a list of strings (the parent's variable names) and outputs the (inner) data-generation function. Giving the inner
