@@ -125,7 +125,7 @@ class SCMEnvironment(Env):
         :param options: Additional information to specify how the environment is reset
         :return: The current observation and additional information.
         """
-        super().reset(seed=seed)
+        super().reset(seed=seed, options=options)
         self.steps_this_episode = 0
 
         self.update_values_from_scm_sample()

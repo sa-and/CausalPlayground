@@ -8,7 +8,9 @@ designed for easy integration with reinforcement learning methods, enhancing its
 learning settings. Find the complete API documentation and a quickstart guide [here](https://sa-and.github.io/CausalPlayground/).
 
 # Installation guide (TODO)
-Either clone and 'pip install -r requirements.txt'
+To directly work with the library yourself:
+
+- Clone `https://github.com/sa-and/CausalPlayground.git`
 
 or 'pip install CausalPlayground'
 

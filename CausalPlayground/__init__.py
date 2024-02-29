@@ -25,7 +25,7 @@ facilitates the creation, manipulation, and sampling of SCM as described below.
 ## Defining an SCM
 Define the SCM $\mathcal{M} = (\mathcal{X}, \mathcal{U}, \mathcal{F}, \mathcal{P})$ with
 $\mathcal{X}= \\{ A, Effect \\}$, $\mathcal{U}=\\{U\\}$, $\mathcal{P}=\\{Uniform(3, 8)\\}$, and
-$$\mathcal{F} = \begin{cases}A\leftarrow 5+U\\\Effect \leftarrow A*2\end{cases}$$
+$\mathcal{F} = \begin{cases}A\leftarrow 5+U\\\Effect \leftarrow A*2\end{cases}$
 
 ```Python
 >>> scm = StructuralCausalModel()
@@ -170,7 +170,7 @@ generates 1000 distinct DAGs with 7 endogenous nodes and 5 exogenous nodes that 
 The `CausalPlayground.SCMGenerator` class also let's you generate SCMs automatically, for example with linear additive
 causal relations and a random causal structure.
 ```Python
->>> from testing.functions import f_linear
+>>> from tests.functions import f_linear
 >>> from CausalPlayground import SCMGenerator
 
 >>> gen = SCMGenerator(all_functions={'linear': f_linear})

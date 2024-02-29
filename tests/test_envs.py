@@ -1,26 +1,7 @@
 import unittest
-from CausalPlayground import SCMEnvironment  #VisualSCMEnvironment
+from CausalPlayground import SCMEnvironment
 from CausalPlayground import StructuralCausalModel
 import random
-
-
-# class TestVisualEnvironment(unittest.TestCase):
-#     def __init__(self, *args, **kwargs):
-#         super(TestVisualEnvironment, self).__init__(*args, **kwargs)
-#         self.env = VisualSCMEnvironment(eval_func=NoEval(), episode_length=20)
-#
-#     def test_output(self):
-#         self.env.step(0)
-#         self.assertEqual(len(self.env.img[0]), self.env.image_size)
-#         self.assertEqual(len(self.env.img[1]), self.env.image_size)
-#
-#     def test_rendering(self):
-#         for _ in range(5):
-#             self.env.render()
-#             self.env.step(-1)
-#         for _ in range(10):
-#             self.env.render()
-#             self.env.step(1)
 
 
 class TestSCMEnvironment(unittest.TestCase):
