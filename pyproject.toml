@@ -4,8 +4,8 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "CausalPlayground"
-version = "0.1.10"
-requires-python = ">= 3.11"
+version = "0.1.11"
+requires-python = ">= 3.10"
 authors = [{name = "Andreas Sauter", email = "a.sauter@vu.nl"}]
 readme = "README.md"
 description = "Interactively generating causal data from structural causal models."
@@ -15,7 +15,7 @@ dependencies = [
         "networkx>=3.2",
         "dill",
         "gymnasium",
-        "matplotlib>=3.8.2",
+        "matplotlib",
         "numpy",
         "pandas",
         "scipy",
