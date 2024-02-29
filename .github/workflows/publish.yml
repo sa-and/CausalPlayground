@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     environment:
       name: testpypi
-      url: https://test.pypi.org/p/CausalPlayground
+      url: https://pypi.org/p/CausalPlayground
     permissions:
       id-token: write
     steps:
@@ -27,6 +27,6 @@ jobs:
       - name: Publish package
         uses: pypa/gh-action-pypi-publish@release/v1
         with:
-          repository-url: https://test.pypi.org/legacy/
+          repository-url: https://pypi.org/legacy/
           username: __token__
           password: ${{ secrets.PYPI }}
