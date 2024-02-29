@@ -1,10 +1,8 @@
 name: Upload Python Package
 
 on:
-  push:
-    branches: [ "pack-and-publish-test" ]
-  #release:
-  #  types: [published]
+  release:
+    types: [published]
 
 jobs:
   deploy:
@@ -31,4 +29,4 @@ jobs:
         with:
           repository-url: https://test.pypi.org/legacy/
           username: __token__
-          password: ${{ secrets.TESTPYPI }}
+          password: ${{ secrets.PYPI }}
