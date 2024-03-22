@@ -4,7 +4,7 @@ causal models (SCMs). It provides extensive functionality for creating, manipula
 integrating them with the Gymnasium framework. Users have complete control over SCMs, enabling precise manipulation and
 interaction with causal mechanisms. Additionally, CausalPlayground offers a range of useful helper functions for generating 
 diverse instances of SCMs and DAGs, facilitating quantitative experimentation and evaluation. Notably, the library is 
-designed for easy integration with reinforcement learning methods, enhancing its utility in active inference and 
+optimized for (but not limited to) easy integration with reinforcement learning methods, enhancing its utility in active inference and 
 learning settings. Find the complete API documentation and a quickstart guide [here](https://sa-and.github.io/CausalPlayground/).
 
 # Installation guide
